@@ -1,6 +1,8 @@
 config.test.yaml
 config.yaml
 
+Gemfile.lock
+
 *.gem
 *.rbc
 /.config
