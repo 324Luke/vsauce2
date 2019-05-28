@@ -35,3 +35,26 @@ Security/Eval:
 Style/ClassAndModuleChildren:
   Enabled: false
 
+Style/NumericLiterals:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Layout/EndOfLine:
+  Enabled: false
+
+Lint/RescueException:
+  Enabled: false
+
+Style/RescueStandardError:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.5.3
+  Exclude:
+    - 'bin/'
+    - 'vendor/'
