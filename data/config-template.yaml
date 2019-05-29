@@ -5,6 +5,9 @@ client_id:
 # Discord API client token
 token:
 
+# Bot Version
+version:
+
 # Command prefix
 prefix:
 
@@ -13,3 +16,15 @@ owner:
 
 # game the bot is playing
 game:
+
+# Default color for embeds
+
+embed:
+
+# Reddit secret token
+
+reddit_secret:
+
+# Reddit client id
+
+reddit_client_id:
