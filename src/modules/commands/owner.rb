@@ -10,7 +10,7 @@ module Bot::DiscordCommands
           event.channel.send_embed do |embed|
             embed.add_field(name: 'Input: ', value: "```\n#{args.join(' ')}```")
             embed.add_field(name: 'Output: ', value: "```\n#{eval args.join(' ')}```")
-            embed.colour = 0x1f6d57
+            embed.colour = Bot::CONFIG.color
           end
         rescue => e
           "An error occurred 😞 ```#{e}```"
@@ -22,7 +22,7 @@ module Bot::DiscordCommands
           event.channel.send_embed do |embed|
             embed.title = 'Shutting down'
             embed.description = 'The bot is shutting down...'
-            embed.color = 0x1f6d57
+            embed.color = Bot::CONFIG.color
           end
 
           sleep 1
@@ -36,7 +36,7 @@ module Bot::DiscordCommands
           event.respond(args.join(' '))
         rescue => e
           "An error occurred 😞 ```#{e}```"
-      end
+        end
 
       when 'reload'
         begin

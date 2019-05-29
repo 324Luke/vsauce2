@@ -18,6 +18,10 @@ module Bot::DiscordCommands
         embed.add_field(name: "`#{Bot::CONFIG.prefix}cat, #{Bot::CONFIG.prefix}kitty`", value: '🐱 Returns a random cat image and fact!', inline: false)
         embed.add_field(name: "`#{Bot::CONFIG.prefix}bunny`", value: '🐰 Returns a random bunny image and fact!', inline: false)
         embed.add_field(name: "`#{Bot::CONFIG.prefix}duck`", value: '🦆 Returns a random duck image and fact!', inline: false)
+        embed.add_field(name: "`#{Bot::CONFIG.prefix}insult`", value: 'Insults anyone of your choosing!', inline: false)
+        embed.add_field(name: "`#{Bot::CONFIG.prefix}gay`", value: 'Returns a 100% accurate value of how gay a given person is', inline: false)
+        embed.add_field(name: "`#{Bot::CONFIG.prefix}reverse, #{Bot::CONFIG.prefix}nou`", value: '🔃', inline: false)
+
 
         embed.color = Bot::CONFIG.color
         embed.timestamp = Time.now
