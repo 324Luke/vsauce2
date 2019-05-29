@@ -4,8 +4,8 @@ module Bot::DiscordCommands
 
     command(:showerthoughts,
             description: '',
-            usage: '') do |event|
-      'Coming Soon!'
+            usage: '') do
+      'Command Coming Soon!'
     end
   end
 end
