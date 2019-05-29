@@ -1,15 +1,13 @@
 module Bot::DiscordCommands
-  module Ping
+  module Gay
     extend Discordrb::Commands::CommandContainer
-    command :ping do |event|
-      m = event.respond('.')
-      ping_time = m.timestamp - Time.now
-      m.delete
-
+    command(:gay,
+            description: '',
+            usage: '') do |event, user|
       event.channel.send_embed do |embed|
-        embed.title = '🏓 Pong!'
+        embed.title = '🌈'
 
-        embed.add_field(name: 'Message Latency', value: "`#{ping_time.floor}ms`", inline: true)
+        embed.description = "#{user} is #{rand(100)}% gay."
 
         embed.color = Bot::CONFIG.color
         embed.timestamp = Time.now

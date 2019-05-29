@@ -31,6 +31,13 @@ module Bot::DiscordCommands
           "An error occurred 😞 ```#{e}```"
         end
 
+      when 'say'
+        begin
+          event.respond(args.join(' '))
+        rescue => e
+          "An error occurred 😞 ```#{e}```"
+      end
+
       when 'reload'
         begin
           Bot.load_modules(:DiscordCommands, 'commands')
