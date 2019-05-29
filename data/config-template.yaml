@@ -21,6 +21,7 @@ game:
 
 embed:
 
+<<<<<<< HEAD
 # # Reddit secret token
 
 # reddit_secret:
@@ -28,3 +29,12 @@ embed:
 # # Reddit client id
 
 # reddit_client_id:
+=======
+# Reddit secret token
+
+reddit_secret:
+
+# Reddit client id
+
+reddit_client_id:
+>>>>>>> parent of f77c86a... Delete config-template.yaml
