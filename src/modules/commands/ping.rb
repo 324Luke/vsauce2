@@ -9,7 +9,7 @@ module Bot::DiscordCommands
       event.channel.send_embed do |embed|
         embed.title = '🏓 Pong!'
 
-        embed.add_field(name: 'Message Latency', value: "`#{ping_time}ms`", inline: true)
+        embed.add_field(name: 'Message Latency', value: "`#{ping_time.floor}ms`", inline: true)
 
         embed.color = Bot::CONFIG.color
         embed.timestamp = Time.now
