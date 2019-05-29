@@ -2,7 +2,7 @@ require 'httparty'
 require 'json'
 
 module Bot::DiscordCommands
-  module Dog
+  module Duck
     extend Discordrb::Commands::CommandContainer
     command(:duck,
             description: '',
