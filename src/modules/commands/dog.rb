@@ -8,10 +8,13 @@ module Bot::DiscordCommands
             description: '',
             usage: '') do |event|
       response = HTTParty.get('https://random.dog/woof.json')
+      fact = HTTParty.get('https://some-random-api.ml/facts/dog')
 
       event.channel.send_embed do |embed|
         embed.title = ['🐶', '🐕', '🐩'].sample
         embed.url = JSON.parse(response.body)['url']
+
+        embed.description = "Cool Dog Fact #{rand(300)}: #{JSON.parse(fact.body)['fact']}"
 
         embed.image = Discordrb::Webhooks::EmbedImage.new(url: JSON.parse(response.body)['url'])
 
