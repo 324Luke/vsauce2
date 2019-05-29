@@ -21,10 +21,10 @@ game:
 
 embed:
 
-# Reddit secret token
+# # Reddit secret token
 
-reddit_secret:
+# reddit_secret:
 
-# Reddit client id
+# # Reddit client id
 
-reddit_client_id:
+# reddit_client_id:
