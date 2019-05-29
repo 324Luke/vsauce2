@@ -1,7 +1,7 @@
 module Bot::DiscordCommands
   module Owner
     extend Discordrb::Commands::CommandContainer
-    command(:o, help_available: false) do |event, command, *args|
+    command([:o, :owner], help_available: false) do |event, command, *args|
       break unless event.user.id == Bot::CONFIG.owner
 
       case command
@@ -18,6 +18,7 @@ module Bot::DiscordCommands
 
       when 'shutdown'
         begin
+          # TODO: Make the bot go invisible on shut down
           event.channel.send_embed do |embed|
             embed.title = 'Shutting down'
             embed.description = 'The bot is shutting down...'
@@ -25,8 +26,7 @@ module Bot::DiscordCommands
           end
 
           sleep 1
-          event.bot.invisible = true
-          bot.stop
+          Bot::BOT.stop
         rescue => e
           "An error occurred 😞 ```#{e}```"
         end
