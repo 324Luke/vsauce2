@@ -23,11 +23,11 @@ module Bot
   # Create our reddit session
   # This is used later to power the meme, joke, and shower thoughts commands.
 
-  # SESSION = Reddit::Base::Client.new(
-  #   user_agent: 'vsauceMemeCommand',
-  #   client_id: CONFIG.reddit_client_id,
-  #   secret: CONFIG.reddit_secret
-  # )
+  SESSION = Redd.it(
+    user_agent: 'vsauceMemeCommand',
+    client_id: CONFIG.reddit_client_id,
+    secret: CONFIG.reddit_secret
+  )
 
   # This class method wraps the module lazy-loading process of discordrb command
   # and event modules. Any module name passed to this method will have its child
