@@ -3,13 +3,15 @@ module Bot::DiscordCommands
     extend Discordrb::Commands::CommandContainer
     command :ping do |event|
       m = event.respond('.')
-      ping_time = m.timestamp - Time.now
+      times = m.timestamp - Time.now
+      ping_time = times * 1000
       m.delete
 
       event.channel.send_embed do |embed|
         embed.title = '🏓 Pong!'
 
         embed.add_field(name: 'Message Latency', value: "`#{ping_time.floor}ms`", inline: true)
+        embed.add_field(name: 'Discord Heartbeat', value: '...', inline: true)
 
         embed.color = Bot::CONFIG.color
         embed.timestamp = Time.now
