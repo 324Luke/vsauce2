@@ -1,7 +1,7 @@
 const vue = new Vue({
   el: '#app',
   data: {
-    header: 'shopping list app',
+    header: 'vsauce',
     defaultPrefix: ';',
     commands: [
       {
