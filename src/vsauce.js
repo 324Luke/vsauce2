@@ -1,9 +1,11 @@
 const { AkairoClient } = require('discord-akairo')
 const { botOwner, commandPrefix, discord } = require('../data/config')
+const logger = require('./logger')
 
 const client = new AkairoClient({
   ownerID: botOwner,
   prefix: commandPrefix,
+  clientUtil: true,
   commandDirectory: './src/commands/',
   inhibitorDirectory: './src/inhibitors',
   listenerDirectory: './src/listeners/'
@@ -13,8 +15,8 @@ const client = new AkairoClient({
 
 client.login(discord.token)
   .then(() => {
-    console.log('Started up!')
+    logger.wait('logging in ...')
   })
   .catch((err) => {
-    throw new Error(err)
+    throw new Error(logger.error(err))
   })

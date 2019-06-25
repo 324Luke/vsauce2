@@ -8,7 +8,13 @@ class HelpCommand extends Command {
   }
 
   async exec (message) {
-    return message.channel.send('help command ran')
+    const embed = this.client.util.embed()
+
+    embed.setTitle('test')
+
+    return message.channel.send('', {
+      embed
+    })
   }
 }
 
