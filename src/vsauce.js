@@ -1,6 +1,7 @@
 const { AkairoClient } = require('discord-akairo')
-const { botOwner, commandPrefix, discord } = require('../data/config')
+const { botOwner, commandPrefix, discord, database } = require('../data/config')
 const logger = require('./logger')
+const db = require('./database')
 
 const client = new AkairoClient({
   ownerID: botOwner,
@@ -13,9 +14,19 @@ const client = new AkairoClient({
   disableEveryone: true
 })
 
+logger.wait('logging in ...')
+
 client.login(discord.token)
-  .then(() => {
-    logger.wait('logging in ...')
+  .then(async () => {
+    logger.wait('logging in to database ...')
+
+    await db.connect(database.url)
+      .then(() => {
+        logger.ready('connected to database ...')
+      })
+      .catch(err => {
+        throw new Error(logger.error(err))
+      })
   })
   .catch((err) => {
     throw new Error(logger.error(err))
