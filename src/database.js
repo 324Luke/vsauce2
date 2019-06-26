@@ -32,12 +32,12 @@ module.exports = {
     })
   },
 
-  async read (collection, type = [ 'guild', 'user' ], id) {
+  async read (collection, searchWith) {
     const db = await this.connect(database.url)
     const data = await db.db('vsauce').collection(collection)
 
     return new Promise(async (resolve, reject) => {
-      await data.findOne({ id }, (err, item) => {
+      await data.findOne(searchWith, (err, item) => {
         if (err) throw err
 
         resolve(item)
