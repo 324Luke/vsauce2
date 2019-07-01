@@ -4,7 +4,9 @@
   "description": "a meme bot for discord",
   "main": "src/vsauce.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon --exec 'npm run lint && node' .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/324Luke/vsauce2#readme",
   "devDependencies": {
+    "babel-eslint": "^10.0.2",
     "eslint": "^6.0.0",
     "eslint-config-standard": "^12.0.0",
     "nodemon": "^1.19.1",
