@@ -1,10 +1,11 @@
 const { Command } = require('discord-akairo')
-const { embedColor, commandPrefix } = require('../../data/config')
+const { embedColor, commandPrefix } = require('../../../data/config')
 
 class HelpCommand extends Command {
   constructor () {
     super('help', {
-      aliases: [ 'help' ]
+      aliases: [ 'help' ],
+      category: 'misc'
     })
   }
 

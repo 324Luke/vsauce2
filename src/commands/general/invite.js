@@ -1,10 +1,11 @@
 const { Command } = require('discord-akairo')
-const { embedColor } = require('../../data/config')
+const { embedColor } = require('../../../data/config')
 
 class InviteCommand extends Command {
   constructor () {
     super('invite', {
-      aliases: [ 'invite' ]
+      aliases: [ 'invite' ],
+      category: 'misc'
     })
   }
 

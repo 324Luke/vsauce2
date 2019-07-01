@@ -1,11 +1,12 @@
 const { Command } = require('discord-akairo')
-const { embedColor } = require('../../data/config')
+const { embedColor } = require('../../../data/config')
 const got = require('got')
 
 class DogCommand extends Command {
   constructor () {
     super('dog', {
-      aliases: [ 'dog', 'doggo' ]
+      aliases: [ 'dog', 'doggo' ],
+      category: 'animal'
     })
   }
 
