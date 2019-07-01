@@ -32,6 +32,15 @@ module.exports = {
     })
   },
 
+  async createMany (collection, objects) {
+    const db = await this.connect(database.url)
+    const data = db.db('vsauce').collection(collection)
+
+    return new Promise(async (resolve, reject) => {
+      await data.insertMany(objects)
+    })
+  },
+
   async read (collection, searchWith) {
     const db = await this.connect(database.url)
     const data = await db.db('vsauce').collection(collection)
@@ -45,12 +54,12 @@ module.exports = {
     })
   },
 
-  async update (collection) {
+  async update (collection, searchFor, toUpdate) {
     const db = await this.connect(database.url)
     const data = db.db('vsauce').collection(collection)
 
     return new Promise(async (resolve, reject) => {
-
+      await data.updateOne(searchFor, toUpdate)
     })
   },
 
