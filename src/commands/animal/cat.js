@@ -1,6 +1,6 @@
 const { Command } = require('discord-akairo')
 const { embedColor } = require('../../../data/config')
-const got = require('got')
+const axios = require('axios')
 
 class CatCommand extends Command {
   constructor () {
@@ -11,23 +11,32 @@ class CatCommand extends Command {
   }
 
   async exec (message) {
-    const embed = this.client.util.embed()
-    const cats = [ '🐱', '🐈', '😸' ]
+    axios.get('http://aws.random.cat/meow')
+      .then(res => {
+        const embed = this.client.util.embed()
+        const cats = [ '🐱', '🐈', '😸' ]
 
-    const image = await got('http://aws.random.cat/meow', { json: true })
-    const fact = await got('https://some-random-api.ml/facts/cat', { json: true })
+        embed.setTitle(cats[Math.floor(Math.random() * cats.length)])
 
-    embed.setTitle(cats[Math.floor(Math.random() * cats.length)])
-    embed.setURL(image.body.file)
-    embed.setDescription(fact.body.fact)
+        embed.setImage(res.data.file)
 
-    embed.setImage(image.body.file)
+        embed.setFooter(`Requested by ${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
+        embed.setTimestamp(new Date())
+        embed.setColor(embedColor)
 
-    embed.setFooter(`Requested by ${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
-    embed.setTimestamp(new Date())
-    embed.setColor(embedColor)
+        message.channel.send(embed)
+      })
+      .catch(err => {
+        const embed = this.client.util.embed()
 
-    await message.channel.send(embed)
+        embed.setDescription(`A error has occured while executing this command, If this error contiues please join our [support server](https://discord.gg/9fvBYnM) \n \`\`\` ${err} \`\`\``)
+
+        embed.setFooter(`Requested by ${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
+        embed.setTimestamp(new Date())
+        embed.setColor(embedColor)
+
+        message.channel.send(embed)
+      })
   }
 }
 

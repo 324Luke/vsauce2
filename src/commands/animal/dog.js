@@ -1,6 +1,6 @@
 const { Command } = require('discord-akairo')
 const { embedColor } = require('../../../data/config')
-const got = require('got')
+const axios = require('axios')
 
 class DogCommand extends Command {
   constructor () {
@@ -11,23 +11,32 @@ class DogCommand extends Command {
   }
 
   async exec (message) {
-    const embed = this.client.util.embed()
-    const dogs = [ '🐶', '🐕', '🐩' ]
+    axios.get('https://random.dog/woof.json')
+      .then(res => {
+        const embed = this.client.util.embed()
+        const dogs = [ '🐶', '🐕', '🐩', '🐕‍🦺' ]
 
-    const image = await got('https://random.dog/woof.json', { json: true })
-    const fact = await got('https://some-random-api.ml/facts/dog', { json: true })
+        embed.setTitle(dogs[Math.floor(Math.random() * dogs.length)])
 
-    embed.setTitle(dogs[Math.floor(Math.random() * dogs.length)])
-    embed.setURL(image.body.url)
-    embed.setDescription(fact.body.fact)
+        embed.setImage(res.data.url)
 
-    embed.setImage(image.body.url)
+        embed.setFooter(`Requested by ${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
+        embed.setTimestamp(new Date())
+        embed.setColor(embedColor)
 
-    embed.setFooter(`Requested by ${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
-    embed.setTimestamp(new Date())
-    embed.setColor(embedColor)
+        message.channel.send(embed)
+      })
+      .catch(err => {
+        const embed = this.client.util.embed()
 
-    await message.channel.send(embed)
+        embed.setDescription(`A error has occured while executing this command, If this error contiues please join our [support server](https://discord.gg/9fvBYnM) \n \`\`\` ${err} \`\`\``)
+
+        embed.setFooter(`Requested by ${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
+        embed.setTimestamp(new Date())
+        embed.setColor(embedColor)
+
+        message.channel.send(embed)
+      })
   }
 }
 
