@@ -10,7 +10,6 @@ VSauce is a meme bot for discord built with Javascript, [Discord.JS](https://npm
 
 # Support
 
-
 ## Help
 
 If you don't understand something or, you are experiencing problems, or you just need a gentle nudge in the right direction, please don't hesitate to join our official [VSauce](https://discord.gg/9fvBYnM) Discord Server.
