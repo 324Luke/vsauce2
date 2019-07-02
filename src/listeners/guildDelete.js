@@ -12,6 +12,7 @@ class GuildDeleteListener extends Listener {
   async exec (guild) {
     if (guild.available) {
       logger.info(`VSauce has left ${guild.name} with ${guild.memberCount} members owned by ${guild.owner}`)
+      logger.info(`vsauce is now serving ${this.client.users.size} users over ${this.client.guilds.size} guilds`)
     }
   }
 }

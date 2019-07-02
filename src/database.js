@@ -61,14 +61,14 @@ module.exports = {
     return new Promise(async (resolve, reject) => {
       await data.updateOne(searchFor, toUpdate)
     })
-  },
-
-  async delete (collection) {
-    const db = await this.connect(database.url)
-    const data = db.db('vsauce').collection(collection)
-
-    return new Promise(async (resolve, reject) => {
-
-    })
   }
+
+  // async delete (collection) {
+  //   const db = await this.connect(database.url)
+  //   const data = db.db('vsauce').collection(collection)
+
+  //   return new Promise(async (resolve, reject) => {
+
+  //   })
+  // }
 }
