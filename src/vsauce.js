@@ -1,3 +1,5 @@
+require('module-alias/register')
+
 const { AkairoClient } = require('discord-akairo')
 const { botOwner, commandPrefix, discord, database } = require('../data/config')
 const logger = require('./Logger')

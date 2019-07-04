@@ -1,5 +1,5 @@
 const { Command } = require('discord-akairo')
-const { embedColor } = require('../../../data/config')
+const { embedColor } = require('@data/config')
 const axios = require('axios')
 
 class DuckCommand extends Command {

@@ -1,6 +1,6 @@
 const { Command } = require('discord-akairo')
 const quotes = require('../../../data/quotes.json')
-const { embedColor } = require('../../../data/config')
+const { embedColor } = require('@data/config')
 
 class QuoteCommand extends Command {
   constructor () {

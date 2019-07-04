@@ -1,6 +1,6 @@
 const { Command } = require('discord-akairo')
 const axios = require('axios')
-const { embedColor } = require('../../../data/config')
+const { embedColor } = require('@data/config')
 
 class InsultCommand extends Command {
   constructor () {

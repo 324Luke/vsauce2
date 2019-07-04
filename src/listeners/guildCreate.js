@@ -1,6 +1,6 @@
 const { Listener } = require('discord-akairo')
 const logger = require('../logger')
-const { commandPrefix } = require('../../data/config')
+const { commandPrefix } = require('@data/config')
 const database = require('../database')
 
 class GuildCreateListener extends Listener {
