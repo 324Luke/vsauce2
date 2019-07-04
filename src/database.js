@@ -4,12 +4,14 @@
  */
 
 const { database } = require('../data/config')
-const mongo = require('mongodb').MongoClient
+const mongoose = require('mongoose')
 
 module.exports = {
+  models: mongoose.models,
+
   async connect (url = database.url) {
     return new Promise((resolve, reject) => {
-      mongo.connect(url, { useNewUrlParser: true })
+      mongoose.createConnection(url, { useNewUrlParser: true, dbName: 'vsauce' })
         .then(db => {
           resolve(db)
         })
@@ -25,7 +27,7 @@ module.exports = {
 
   async create (collection, object) {
     const db = await this.connect(database.url)
-    const data = db.db('vsauce').collection(collection)
+    const data = db.collection(collection)
 
     return new Promise(async (resolve, reject) => {
       await data.insertOne(object)
@@ -34,7 +36,7 @@ module.exports = {
 
   async createMany (collection, objects) {
     const db = await this.connect(database.url)
-    const data = db.db('vsauce').collection(collection)
+    const data = db.collection(collection)
 
     return new Promise(async (resolve, reject) => {
       await data.insertMany(objects)
@@ -43,10 +45,10 @@ module.exports = {
 
   async read (collection, searchWith) {
     const db = await this.connect(database.url)
-    const data = await db.db('vsauce').collection(collection)
+    const data = await db.collection(collection)
 
     return new Promise(async (resolve, reject) => {
-      await data.findOne(searchWith, (err, item) => {
+      await data.find(searchWith, (err, item) => {
         if (err) throw err
 
         resolve(item)
@@ -56,7 +58,7 @@ module.exports = {
 
   async update (collection, searchFor, toUpdate) {
     const db = await this.connect(database.url)
-    const data = db.db('vsauce').collection(collection)
+    const data = db.collection(collection)
 
     return new Promise(async (resolve, reject) => {
       await data.updateOne(searchFor, toUpdate)
@@ -65,7 +67,7 @@ module.exports = {
 
   // async delete (collection) {
   //   const db = await this.connect(database.url)
-  //   const data = db.db('vsauce').collection(collection)
+  //   const data = db.collection(collection)
 
   //   return new Promise(async (resolve, reject) => {
 

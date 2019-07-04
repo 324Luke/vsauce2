@@ -12,6 +12,8 @@ class ReadyListener extends Listener {
   async exec () {
     logger.ready('bot has started')
     logger.info(`vsauce is serving ${this.client.users.size} users over ${this.client.guilds.size} guilds`)
+
+    // TODO: Sync database on ready event with active guilds
   }
 }
 
