@@ -36,6 +36,8 @@ class HelpCommand extends Command {
     embed.addField(`\`${commandPrefix}insult\``, 'Insults anyone of your choosing!')
     embed.addField(`\`${commandPrefix}gay\``, 'Returns a ~~100% accurate~~ value of how gay a given person is.')
     embed.addField(`\`${commandPrefix}reverse, ${commandPrefix}nou\``, '🔃')
+    embed.addField(`\`${commandPrefix}quote\``, 'Returns a random VSauce quote!')
+    embed.addField(`\`${commandPrefix}useless, ${commandPrefix}uselessweb\``, 'Returns a random useless website!')
     /*
      * Reddit Commands
      */
