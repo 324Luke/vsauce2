@@ -29,3 +29,7 @@ This project is licensed under [AGPL-3.0](LICENSE.md)
 # Contributors
 
 * [`Luke#1000`](https://lukewhrit.xyz) - Creator and Maintainer
+
+# Widgets
+ [![Discord Bot List](https://discordbotlist.com/bots/455099726635728896/widget)](https://discordbotlist.com/bots/455099726635728896) | [![Discord Bots](https://discordbots.org/api/widget/455099726635728896.svg)](https://discordbots.org/bot/455099726635728896)
+ ------------ | -----------: |
