@@ -1,7 +1,7 @@
 const { AkairoClient } = require('discord-akairo')
 const { botOwner, commandPrefix, discord, database } = require('../data/config')
-const logger = require('./logger')
-const db = require('./database')
+const logger = require('./Logger')
+const db = require('./Database')
 
 const client = new AkairoClient({
   ownerID: botOwner,
