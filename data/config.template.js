@@ -8,7 +8,7 @@ module.exports = {
 
   // owner of the bot
 
-  botOwner: 123,
+  botOwner: [ '' ],
 
   // game the bot is playing
 
@@ -31,5 +31,10 @@ module.exports = {
     clientID: '',
     // reddit api client secret
     clientSecret: ''
+  },
+
+  // database authentication
+  database: {
+    url: ''
   }
 }
