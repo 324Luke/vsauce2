@@ -1,7 +1,5 @@
-# Data
-
 data/config.js
-
+dist/
 
 # Logs
 logs
