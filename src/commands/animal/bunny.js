@@ -1,6 +1,6 @@
-const { Command } = require('discord-akairo')
-const { embedColor } = require('@data/config')
-const axios = require('axios')
+import { Command } from 'discord-akairo'
+import { embedColor } from '@data/config'
+import axios from 'axios'
 
 class BunnyCommand extends Command {
   constructor () {
@@ -40,4 +40,4 @@ class BunnyCommand extends Command {
   }
 }
 
-module.exports = BunnyCommand
+export default BunnyCommand

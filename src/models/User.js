@@ -1,7 +1,9 @@
-const db = require('../Database').connect()
-const Schema = require('mongoose').Schema
+import Schema from 'mongoose'
+import Database from '../Database'
 
-module.exports = db.model('UserModel', new Schema({
+const db = Database.connect()
+
+export default db.model('UserModel', new Schema.Schema({
   id: Number,
   name: String,
   balance: Number,

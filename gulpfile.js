@@ -1,6 +1,6 @@
-const gulp from 'gulp')
-const babel from 'gulp-babel')
-const eslint from 'gulp-eslint')
+const gulp = require('gulp')
+const babel = require('gulp-babel')
+const eslint = require('gulp-eslint')
 
 gulp.task('default', () =>
   gulp.src('src/**/*.js')

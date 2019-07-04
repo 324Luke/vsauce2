@@ -1,6 +1,6 @@
-const { Command } = require('discord-akairo')
-const { embedColor } = require('@data/config')
-const axios = require('axios')
+import { Command } from 'discord-akairo'
+import { embedColor } from '@data/config'
+import axios from 'axios'
 
 class DuckCommand extends Command {
   constructor () {
@@ -39,4 +39,4 @@ class DuckCommand extends Command {
   }
 }
 
-module.exports = DuckCommand
+export default DuckCommand

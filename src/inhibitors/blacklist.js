@@ -1,5 +1,5 @@
-const { Inhibitor } = require('discord-akairo')
-const blacklist = require('../../data/blacklistedUsers')
+import { Inhibitor } from 'discord-akairo'
+import blacklist from '../../data/blacklistedUsers'
 
 class BlacklistInhibitor extends Inhibitor {
   constructor () {
@@ -8,9 +8,9 @@ class BlacklistInhibitor extends Inhibitor {
     })
   }
 
-  exec (message) {
+  async exec (message) {
     return blacklist.includes(message.author.id)
   }
 }
 
-module.exports = BlacklistInhibitor
+export default BlacklistInhibitor

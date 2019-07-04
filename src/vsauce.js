@@ -1,9 +1,9 @@
-require('module-alias/register')
+import 'module-alias/register'
 
-const { AkairoClient } = require('discord-akairo')
-const { botOwner, commandPrefix, discord, database } = require('../data/config')
-const logger = require('./Logger')
-const db = require('./Database')
+import { AkairoClient } from 'discord-akairo'
+import { botOwner, commandPrefix, discord, database } from '../data/config'
+import logger from './Logger'
+import db from './Database'
 
 const client = new AkairoClient({
   ownerID: botOwner,

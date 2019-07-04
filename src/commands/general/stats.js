@@ -1,4 +1,4 @@
-const { Command } = require('discord-akairo')
+import { Command } from 'discord-akairo'
 
 class StatsCommand extends Command {
   constructor () {
@@ -13,4 +13,4 @@ class StatsCommand extends Command {
   }
 }
 
-module.exports = StatsCommand
+export default StatsCommand

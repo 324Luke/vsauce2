@@ -1,5 +1,5 @@
-const { Command } = require('discord-akairo')
-const { embedColor } = require('@data/config')
+import { Command } from 'discord-akairo'
+import { embedColor } from '@data/config'
 
 class PingCommand extends Command {
   constructor () {
@@ -24,4 +24,4 @@ class PingCommand extends Command {
   }
 }
 
-module.exports = PingCommand
+export default PingCommand

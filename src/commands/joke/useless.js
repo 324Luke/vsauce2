@@ -1,5 +1,5 @@
-const { Command } = require('discord-akairo')
-const uselessSites = require('../../../data/useless.json')
+import { Command } from 'discord-akairo'
+import uselessSites from '../../../data/useless.json'
 
 class UselessCommand extends Command {
   constructor () {
@@ -14,4 +14,4 @@ class UselessCommand extends Command {
   }
 }
 
-module.exports = UselessCommand
+export default UselessCommand

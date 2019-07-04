@@ -3,10 +3,10 @@
  * Connects to a MongoDB instance and provides helper functions for maniuplating data
  */
 
-const { database } = require('../data/config')
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
+import { database } from '../data/config'
 
-module.exports = {
+export default {
   models: mongoose.models,
 
   async connect (url = database.url) {

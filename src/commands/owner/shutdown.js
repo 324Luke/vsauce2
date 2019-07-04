@@ -1,5 +1,5 @@
-const { Command } = require('discord-akairo')
-const { embedColor } = require('@data/config')
+import { Command } from 'discord-akairo'
+import { embedColor } from '@data/config'
 
 class ShutdownCommand extends Command {
   constructor () {
@@ -25,4 +25,4 @@ class ShutdownCommand extends Command {
   }
 }
 
-module.exports = ShutdownCommand
+export default ShutdownCommand

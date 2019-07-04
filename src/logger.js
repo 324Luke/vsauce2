@@ -1,6 +1,6 @@
-const chalk = require('chalk')
+import chalk from 'chalk'
 
-module.exports = {
+export default {
   async info (message) {
     console.log(`${chalk.blue('info →')} ${message}`)
   },

@@ -1,6 +1,6 @@
-const { Command } = require('discord-akairo')
-const quotes = require('../../../data/quotes.json')
-const { embedColor } = require('@data/config')
+import { Command } from 'discord-akairo'
+import quotes from '../../../data/quotes.json'
+import { embedColor } from '@data/config'
 
 class QuoteCommand extends Command {
   constructor () {
@@ -25,4 +25,4 @@ class QuoteCommand extends Command {
   }
 }
 
-module.exports = QuoteCommand
+export default QuoteCommand

@@ -1,6 +1,6 @@
-const { Command } = require('discord-akairo')
-const { embedColor } = require('@data/config')
-const axios = require('axios')
+import { Command } from 'discord-akairo'
+import { embedColor } from '@data/config'
+import axios from 'axios'
 
 class DogCommand extends Command {
   constructor () {
@@ -40,4 +40,4 @@ class DogCommand extends Command {
   }
 }
 
-module.exports = DogCommand
+export default DogCommand

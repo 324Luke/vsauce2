@@ -1,5 +1,5 @@
-const { Listener } = require('discord-akairo')
-const logger = require('../logger')
+import { Listener } from 'discord-akairo'
+import logger from '@src/Logger'
 
 class ReadyListener extends Listener {
   constructor () {
@@ -17,4 +17,4 @@ class ReadyListener extends Listener {
   }
 }
 
-module.exports = ReadyListener
+export default ReadyListener

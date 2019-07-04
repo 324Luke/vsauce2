@@ -1,5 +1,5 @@
-const { Command } = require('discord-akairo')
-const { embedColor } = require('@data/config')
+import { Command } from 'discord-akairo'
+import { embedColor } from '@data/config'
 
 class InviteCommand extends Command {
   constructor () {
@@ -26,4 +26,4 @@ class InviteCommand extends Command {
   }
 }
 
-module.exports = InviteCommand
+export default InviteCommand

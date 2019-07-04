@@ -1,5 +1,5 @@
-const { Command } = require('discord-akairo')
-const { embedColor, commandPrefix } = require('../../../data/config')
+import { Command } from 'discord-akairo'
+import { embedColor, commandPrefix } from '@data/config'
 
 class HelpCommand extends Command {
   constructor () {
@@ -50,4 +50,4 @@ class HelpCommand extends Command {
   }
 }
 
-module.exports = HelpCommand
+export default HelpCommand

@@ -1,6 +1,6 @@
-const { Command } = require('discord-akairo')
-const axios = require('axios')
-const { embedColor } = require('@data/config')
+import { Command } from 'discord-akairo'
+import axios from 'axios'
+import { embedColor } from '@data/config'
 
 class InsultCommand extends Command {
   constructor () {
@@ -48,4 +48,4 @@ class InsultCommand extends Command {
   }
 }
 
-module.exports = InsultCommand
+export default InsultCommand

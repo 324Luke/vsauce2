@@ -1,7 +1,7 @@
-const { Listener } = require('discord-akairo')
-const logger = require('../logger')
-const { commandPrefix } = require('@data/config')
-const database = require('../database')
+import { Listener } from 'discord-akairo'
+import logger from '@src/Logger'
+import { commandPrefix } from '@data/config'
+import database from '@src/database'
 
 class GuildCreateListener extends Listener {
   constructor () {
@@ -26,4 +26,4 @@ class GuildCreateListener extends Listener {
   }
 }
 
-module.exports = GuildCreateListener
+export default GuildCreateListener
