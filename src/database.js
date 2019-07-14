@@ -25,6 +25,11 @@ export default {
    * CRUD (Create, Read, Update, Delete) functions
    */
 
+  /**
+   * Inserts a document into the database
+   * @param {String} collection
+   * @param {Object} object
+   */
   async create (collection, object) {
     const db = await this.connect(database.url)
     const data = db.collection(collection)
@@ -34,6 +39,11 @@ export default {
     })
   },
 
+  /**
+   * Inserts many documents to the database
+   * @param {String} collection
+   * @param {Object} objects
+   */
   async createMany (collection, objects) {
     const db = await this.connect(database.url)
     const data = db.collection(collection)
@@ -43,6 +53,11 @@ export default {
     })
   },
 
+  /**
+   * Reads documents from the database
+   * @param {String} collection
+   * @param {Object} searchWith
+   */
   async read (collection, searchWith) {
     const db = await this.connect(database.url)
     const data = await db.collection(collection)
@@ -56,6 +71,12 @@ export default {
     })
   },
 
+  /**
+   * Updates values of documents in the database
+   * @param {String} collection
+   * @param {Object} searchFor
+   * @param {Object} toUpdate
+   */
   async update (collection, searchFor, toUpdate) {
     const db = await this.connect(database.url)
     const data = db.collection(collection)
