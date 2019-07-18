@@ -9,6 +9,7 @@ const client = new AkairoClient({
   ownerID: botOwner,
   prefix: commandPrefix,
   clientUtil: true,
+  handleEdits: true,
   defaultCooldown: 2000,
   commandDirectory: './src/commands/',
   inhibitorDirectory: './src/inhibitors',
