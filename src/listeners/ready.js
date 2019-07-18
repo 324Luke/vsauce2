@@ -1,5 +1,7 @@
 import { Listener } from 'discord-akairo'
 import logger from '@src/Logger'
+import database from '@src/Database'
+import { commandPrefix } from '@data/config'
 
 class ReadyListener extends Listener {
   constructor () {
@@ -13,7 +15,20 @@ class ReadyListener extends Listener {
     logger.ready('bot has started')
     logger.info(`vsauce is serving ${this.client.users.size} users over ${this.client.guilds.size} guilds`)
 
-    // TODO: Sync database on ready event with active guilds
+    // FIXME: Doesn't add guilds
+    // also probably needs a refactor for quickness
+    this.client.guilds.forEach(guild => {
+      if (guild.available) {
+        if (!database.read('guilds', { id: guild.id })) {
+          database.create('guilds', {
+            name: guild.name,
+            id: guild.id,
+            prefix: commandPrefix
+          })
+          logger.info(`inserted guild ${guild.name} with id ${guild.id}`)
+        }
+      }
+    })
   }
 }
 
