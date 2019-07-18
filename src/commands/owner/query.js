@@ -1,5 +1,4 @@
 import { Command } from 'discord-akairo'
-import database from '../../Database'
 
 class DatabaseRunCommand extends Command {
   constructor () {
@@ -25,12 +24,7 @@ class DatabaseRunCommand extends Command {
   }
 
   async exec (message, { func, collection, statement }) {
-    switch (func) {
-      case 'read':
-        const db = database.connect()
-
-        db.collection(collection)
-    }
+    message.channel.send('Not finished.')
   }
 }
 
