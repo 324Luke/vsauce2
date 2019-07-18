@@ -2,8 +2,8 @@ import { Command } from 'discord-akairo'
 
 class DatabaseRunCommand extends Command {
   constructor () {
-    super('dbrun', {
-      aliases: [ 'db', 'database', 'runondb', 'dbrun' ],
+    super('query', {
+      aliases: [ 'query', 'db', 'database', 'runondb', 'dbrun' ],
       category: 'owner',
       ownerOnly: true,
       args: [
