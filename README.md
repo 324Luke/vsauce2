@@ -22,6 +22,16 @@ If you don't understand something or, you are experiencing problems, or you just
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new [Pull Request](https://github.com/324Luke/vsauce2/pulls)
 
+## Running the Bot
+
+1. Install Node.js & NPM [here](https://nodejs.org/en/) if you haven't already.
+2. Install MongoDB [here](https://www.mongodb.com/download-center/community) if you haven't already.
+   1. Find your [installation guide](https://docs.mongodb.com/manual/installation/) and follow it.
+3. Rename `data/config.template.js` to `data/config.js`
+4. Populate `data/config.js` with data
+5. Install NPM packages with `npm install`
+6. Run the bot using either `npm run start` (for production) or `npm run dev` (for local development)
+
 # Licensing
 
 This project is licensed under [AGPL-3.0](LICENSE.md)
