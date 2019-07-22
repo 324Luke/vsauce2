@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   // bot version
   version: require('../package').version || '3.0.0',
 
