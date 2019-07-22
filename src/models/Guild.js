@@ -6,6 +6,6 @@ const db = Database.connect()
 export default db.model('GuildModel', new Schema.Schema({
   id: Number,
   name: String,
-  prefix: Array(String),
-  disabledCommands: Array(String)
+  prefix: Array[String],
+  disabledCommands: Array[String]
 }))
