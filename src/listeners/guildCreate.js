@@ -1,6 +1,6 @@
 import { Listener } from 'discord-akairo'
 import logger from '@src/Logger'
-import { commandPrefix } from '@data/config'
+import { commandPrefix, presence } from '@data/config'
 import database from '@src/database'
 
 class GuildCreateListener extends Listener {
@@ -13,6 +13,9 @@ class GuildCreateListener extends Listener {
 
   async exec (guild) {
     if (guild.available) {
+      this.client.user.setPresence({ game: { name: presence.name(this.client), type: presence.type }, status: presence.status })
+        .catch(console.error)
+
       logger.info(`VSauce has joined ${guild.name} with ${guild.memberCount} members owned by ${guild.owner}`)
       logger.info(`vsauce is now serving ${this.client.users.size} users over ${this.client.guilds.size} guilds`)
 

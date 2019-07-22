@@ -1,7 +1,7 @@
 import { Listener } from 'discord-akairo'
 import logger from '@src/Logger'
 import database from '@src/Database'
-import { commandPrefix } from '@data/config'
+import { commandPrefix, presence } from '@data/config'
 
 class ReadyListener extends Listener {
   constructor () {
@@ -12,6 +12,9 @@ class ReadyListener extends Listener {
   }
 
   async exec () {
+    this.client.user.setPresence({ game: { name: presence.name(this.client), type: presence.type }, status: presence.status })
+      .catch(console.error)
+
     logger.ready('bot has started')
     logger.info(`vsauce is serving ${this.client.users.size} users over ${this.client.guilds.size} guilds`)
 

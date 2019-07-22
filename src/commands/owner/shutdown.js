@@ -20,7 +20,9 @@ class ShutdownCommand extends Command {
     embed.setColor(embedColor)
 
     message.channel.send(embed)
-
+    this.client.user.setPresence({ game: { name: '🔌 Shutting down ...', type: 'PLAYING' } })
+    this.client.user.setPresence({ game: {}, status: 'invisible' })
+      .catch(console.error)
     setTimeout(() => process.exit(), 3000)
   }
 }
