@@ -5,7 +5,6 @@ import { botOwner, commandPrefix, discord, database } from '../data/config'
 import logger from './Logger'
 import db from './Database'
 
-// Check if node 8+ is present. If not throw error
 if (Number(process.version.slice(1).split('.')[0]) < 8) throw new Error('Node 8.0.0 or higher is required. Update Node on your system.')
 
 const client = new AkairoClient({
