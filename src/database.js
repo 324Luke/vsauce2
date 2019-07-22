@@ -26,6 +26,10 @@ export default {
     })
   },
 
+  async ping () {
+
+  },
+
   /*
    * CRUD (Create, Read, Update, Delete) functions
    */

@@ -22,6 +22,8 @@ class InsultCommand extends Command {
       .then(res => {
         const embed = this.client.util.embed()
 
+        embed.setTitle('😡')
+
         if (user) {
           embed.setDescription(`<@${user.id}>, ${JSON.stringify(res.data).split('"')[1]}`)
         } else {
@@ -37,6 +39,7 @@ class InsultCommand extends Command {
       .catch(err => {
         const embed = this.client.util.embed()
 
+        embed.setTitle('🐛 Error')
         embed.setDescription(`A error has occured while executing this command, If this error contiues please join our [support server](https://discord.gg/9fvBYnM) \n \`\`\` ${err} \`\`\``)
 
         embed.setFooter(`Requested by ${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)

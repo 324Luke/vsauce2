@@ -13,7 +13,7 @@ class QuoteCommand extends Command {
   async exec (message) {
     const embed = this.client.util.embed()
 
-    embed.setTitle('Quote')
+    embed.setTitle('💬 Quote')
 
     embed.setDescription(quotes[Math.floor(Math.random() * quotes.length)])
 

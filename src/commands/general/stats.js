@@ -20,7 +20,7 @@ class StatsCommand extends Command {
 
     const embed = this.client.util.embed()
 
-    embed.setTitle('Statistics')
+    embed.setTitle('📊 Statistics')
 
     embed.addField('Author', `${this.client.users.get('189850839660101632')}`, true)
     embed.addField('Bot Version', `v${version}`, true)

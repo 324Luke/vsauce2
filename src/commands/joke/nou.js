@@ -13,6 +13,7 @@ class NoUCommand extends Command {
   async exec (message) {
     const embed = this.client.util.embed()
 
+    embed.setTitle('🔀')
     embed.setImage(images[Math.floor(Math.random() * images.length)])
 
     embed.setColor(embedColor)

@@ -11,7 +11,8 @@ class PingCommand extends Command {
   async exec (message) {
     const embed = this.client.util.embed()
 
-    embed.setTitle('**Pinging...**')
+    embed.setTitle('🏓 **Pinging...**')
+
     embed.setFooter(`Requested by ${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
     embed.setTimestamp(new Date())
     embed.setColor(embedColor)
