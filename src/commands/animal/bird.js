@@ -20,7 +20,7 @@ class BirdCommand extends Command {
 
         embed.setImage(res.data.link)
 
-        embed.setFooter(`Requested by ${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
+        embed.setFooter(`Powered by some-random-api.ml | Requested by ${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
         embed.setTimestamp(new Date())
         embed.setColor(embedColor)
 
@@ -29,6 +29,7 @@ class BirdCommand extends Command {
       .catch(err => {
         const embed = this.client.util.embed()
 
+        embed.setTitle('🐛 Error')
         embed.setDescription(`A error has occured while executing this command, If this error contiues please join our [support server](https://discord.gg/9fvBYnM) \n \`\`\` ${err} \`\`\``)
 
         embed.setFooter(`Requested by ${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
