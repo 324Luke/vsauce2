@@ -18,8 +18,9 @@ class ReadyListener extends Listener {
     logger.ready('bot has started')
     logger.info(`vsauce is serving ${this.client.users.size} users over ${this.client.guilds.size} guilds`)
 
-    // FIXME: Doesn't add guilds
-    // also probably needs a refactor for quickness
+    // TODO: Add stats poster
+
+    // FIXME:
     this.client.guilds.forEach(guild => {
       if (guild.available) {
         if (!database.read('guilds', { id: guild.id })) {

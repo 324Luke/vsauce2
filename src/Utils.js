@@ -1,5 +1,3 @@
-/* eslint-disable no-new */
-import DBL from 'dblapi.js'
 import { listingSites } from '@data/config'
 import axios from 'axios'
 
@@ -10,6 +8,16 @@ import axios from 'axios'
  */
 export function getRandomInt (min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+/**
+ *
+ * @param {Array} array
+ */
+export function randomFromArray (array) {
+  if (Array.isArray(array)) {
+    return array[Math.floor(Math.random() * array.length)]
+  }
 }
 
 /**
@@ -26,9 +34,6 @@ export function getDatabasePing (db) {
  */
 export function postStats (client) {
   if (process.env.NODE_ENV === 'production') {
-    // Discord Bots
-    new DBL(listingSites.discordbots, client)
-
     // Discord Bot List
     axios({
       method: 'post',
@@ -60,5 +65,25 @@ export function postStats (client) {
         'server_count': Number(client.guilds.size)
       }
     })
+  }
+}
+
+/**
+ *
+ * @param {String} subreddit
+ */
+export async function getReddit (subreddit) {
+  const res = await axios.get(`https://www.reddit.com/r/${subreddit}/hot.json`)
+  if (res.length === 0) {
+    return false
+  } else {
+    let max = []
+    max = res.data.data.children.map(i => i.data.ups)
+
+    const rand = Math.floor(Math.random() * max.length)
+
+    const post = res.data.data.children.filter(i => i.data.ups === max[rand])
+
+    return post[0].data
   }
 }
