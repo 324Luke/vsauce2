@@ -25,13 +25,6 @@ module.exports = {
     // discord api client token
     token: ''
   },
-  // reddit api information
-  reddit: {
-    // reddit api client id
-    clientID: '',
-    // reddit api client secret
-    clientSecret: ''
-  },
 
   // database authentication
   database: {
