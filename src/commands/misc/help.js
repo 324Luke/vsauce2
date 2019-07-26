@@ -5,7 +5,8 @@ class HelpCommand extends Command {
   constructor () {
     super('help', {
       aliases: [ 'help' ],
-      category: 'misc'
+      category: 'misc',
+      description: '💁 Shows a list of all commands available to this server'
     })
   }
 
@@ -46,7 +47,7 @@ class HelpCommand extends Command {
     embed.setTimestamp(new Date())
     embed.setFooter(`Requested by ${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
 
-    return message.channel.send('', { embed })
+    return message.channel.send({ embed })
   }
 }
 

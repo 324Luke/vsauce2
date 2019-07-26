@@ -6,7 +6,8 @@ class DuckCommand extends Command {
   constructor () {
     super('duck', {
       aliases: [ 'duck' ],
-      category: 'animal'
+      category: 'animal',
+      description: '🦆 Returns a random duck image and fact!'
     })
   }
 

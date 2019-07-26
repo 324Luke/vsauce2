@@ -7,6 +7,7 @@ class InsultCommand extends Command {
     super('insult', {
       aliases: [ 'insult' ],
       category: 'joke',
+      description: '😡 Insults anyone of your choosing!',
       args: [
         {
           id: 'member',

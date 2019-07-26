@@ -5,7 +5,8 @@ class InviteCommand extends Command {
   constructor () {
     super('invite', {
       aliases: [ 'invite' ],
-      category: 'misc'
+      category: 'misc',
+      description: '➕ Returns an invite for the bot'
     })
   }
 

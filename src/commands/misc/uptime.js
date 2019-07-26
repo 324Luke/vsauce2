@@ -5,7 +5,8 @@ class UptimeCommand extends Command {
   constructor () {
     super('uptime', {
       aliases: [ 'uptime' ],
-      category: 'misc'
+      category: 'misc',
+      description: '⌚ Shows how long the bot has been online'
     })
   }
 

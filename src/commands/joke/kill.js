@@ -7,6 +7,7 @@ class KillCommand extends Command {
     super('kill', {
       aliases: [ 'kill', 'murder' ],
       category: 'joke',
+      description: '🔪 Kills anyone of your choosing',
       args: [
         {
           id: 'victim',

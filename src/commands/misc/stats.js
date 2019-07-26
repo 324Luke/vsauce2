@@ -5,7 +5,8 @@ class StatsCommand extends Command {
   constructor () {
     super('stats', {
       aliases: [ 'stats', 'info', 'statistics' ],
-      category: 'misc'
+      category: 'misc',
+      description: '📊 Returns basic statistics on the bot.'
     })
   }
 

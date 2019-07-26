@@ -6,7 +6,8 @@ class NoUCommand extends Command {
   constructor () {
     super('nou', {
       aliases: [ 'nou', 'reverse' ],
-      category: 'joke'
+      category: 'joke',
+      description: '🔀'
     })
   }
 

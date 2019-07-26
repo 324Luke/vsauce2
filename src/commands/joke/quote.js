@@ -6,7 +6,8 @@ class QuoteCommand extends Command {
   constructor () {
     super('quote', {
       aliases: [ 'quote' ],
-      category: 'joke'
+      category: 'joke',
+      description: '💬 Returns a random VSauce quote!'
     })
   }
 

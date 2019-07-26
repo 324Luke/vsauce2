@@ -7,6 +7,7 @@ class GayCommand extends Command {
     super('gay', {
       aliases: [ 'gay', 'howgay' ],
       category: 'joke',
+      description: '🌈 Returns a ~~100% accurate~~ value of how gay a given person is.',
       args: [
         {
           id: 'member',

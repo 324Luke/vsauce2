@@ -4,7 +4,9 @@ import { embedColor } from '@data/config'
 class PingCommand extends Command {
   constructor () {
     super('ping', {
-      aliases: [ 'ping' ]
+      aliases: [ 'ping' ],
+      category: 'misc',
+      description: '🏓 Gets the bots current ping to discord'
     })
   }
 
