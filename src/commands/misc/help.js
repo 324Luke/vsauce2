@@ -4,50 +4,76 @@ import { embedColor, commandPrefix } from '@data/config'
 class HelpCommand extends Command {
   constructor () {
     super('help', {
-      aliases: [ 'help' ],
+      aliases: [ 'help', 'commands', 'cmds' ],
       category: 'misc',
-      description: '💁 Shows a list of all commands available to this server'
+      clientPermissions: [ 'EMBED_LINKS' ],
+      quoted: false,
+      args: [
+        {
+          id: 'command',
+          type: 'commandAlias',
+          prompt: {
+            start: 'Which command do you need help with?',
+            retry: 'Please provide a valid command.',
+            optional: true
+          }
+        }
+      ],
+      description: {
+        content: 'Displays a list of commands or information about a command.',
+        usage: '[command]',
+        examples: [ '', 'stats' ]
+      }
     })
   }
 
-  async exec (message) {
+  async exec (message, { command }) {
+    if (!command) return this.execCommandList(message)
+
+    const prefix = this.handler.prefix(message)
+    const description = Object.assign({
+      content: 'No description available.',
+      usage: '',
+      examples: [],
+      fields: []
+    }, command.description)
+
+    const embed = this.client.util.embed()
+      .setColor(embedColor)
+      .setTitle(`\`${prefix}${command.aliases[0]} ${description.usage}\``)
+      .addField('Description', description.content)
+
+    for (const field of description.fields) embed.addField(field.name, field.value)
+
+    if (description.examples.length) {
+      const text = `${prefix[0]}${command.aliases[0]}`
+      embed.addField('Examples', `\`${text} ${description.examples.join(`\`\n\`${text} `)}\``, true)
+    }
+
+    if (command.aliases.length > 1) {
+      embed.addField('Aliases', `\`${command.aliases.join('` `')}\``, true)
+    }
+
+    return message.util.send({ embed })
+  }
+
+  async execCommandList (message) {
     const embed = this.client.util.embed()
 
     embed.setTitle('📒 VSauce Bot Help')
-    embed.setDescription('Need more help than I can provide? Join our [support server](https://discord.gg/9fvBYnM)!')
-
-    /*
-     * Basic Commands
-     */
-    embed.addField(`\`${commandPrefix}help\``, 'Shows a list of all commands available to this server')
-    embed.addField(`\`${commandPrefix}ping\``, 'Gets the bots current ping to discord')
-    embed.addField(`\`${commandPrefix}stats, ${commandPrefix}info, ${commandPrefix}statistics\``, 'Returns basic statistics on the bot.')
-    embed.addField(`\`${commandPrefix}invite\``, 'Returns an invite for the bot')
-    /*
-     * Animal Commands
-     */
-    embed.addField(`\`${commandPrefix}dog, ${commandPrefix}doggo\``, '🐶 Returns a random dog image and fact!')
-    embed.addField(`\`${commandPrefix}bird, ${commandPrefix}birb\``, '🕊 Returns a random bird image and fact!')
-    embed.addField(`\`${commandPrefix}cat, ${commandPrefix}kitty\``, '🐱 Returns a random cat image and fact!')
-    embed.addField(`\`${commandPrefix}bunny\``, '🐰 Returns a random bunny image and fact!')
-    embed.addField(`\`${commandPrefix}duck\``, '🦆 Returns a random duck image and fact!')
-    /*
-     * Joke Commands
-     */
-    embed.addField(`\`${commandPrefix}insult\``, 'Insults anyone of your choosing!')
-    embed.addField(`\`${commandPrefix}gay\``, 'Returns a ~~100% accurate~~ value of how gay a given person is.')
-    embed.addField(`\`${commandPrefix}reverse, ${commandPrefix}nou\``, '🔃')
-    embed.addField(`\`${commandPrefix}quote\``, 'Returns a random VSauce quote!')
-    embed.addField(`\`${commandPrefix}useless, ${commandPrefix}uselessweb\``, 'Returns a random useless website!')
-    /*
-     * Reddit Commands
-     */
+    embed.setDescription(`Need more help than I can provide? Join our [support server](https://discord.gg/9fvBYnM)!\n\nTo view details for a command, do \`${commandPrefix}help <command>\``)
 
     embed.setColor(embedColor)
     embed.setTimestamp(new Date())
     embed.setFooter(`Requested by ${message.author.username}#${message.author.discriminator}`, message.author.avatarURL)
 
-    return message.channel.send({ embed })
+    for (const category of this.handler.categories.values()) {
+      embed.addField(category.id.replace(/(\b\w)/gi, lc => lc.toUpperCase()), `${category.filter(cmd => cmd.aliases.length > 0).map(cmd => `\`${cmd.aliases[0]}\``).join(' ')}`)
+    }
+
+    await message.util.send({ embed })
+
+    return undefined
   }
 }
 
