@@ -1,7 +1,7 @@
 import { Listener } from 'discord-akairo'
 import logger from '@src/Logger'
-import { commandPrefix, presence } from '@data/config'
-import database from '@src/database'
+import { presence } from '@data/config'
+import Guild from '@src/models/Guild'
 
 class GuildCreateListener extends Listener {
   constructor () {
@@ -20,11 +20,19 @@ class GuildCreateListener extends Listener {
       logger.info(`vsauce is now serving ${this.client.users.size} users over ${this.client.guilds.size} guilds`)
 
       // Create new guild object in database
-      database.create('guilds', {
-        name: guild.name,
-        id: guild.id,
-        prefix: commandPrefix
-      })
+
+      if (!await Guild.findOne({ id: guild.id })) {
+        const guildToSave = new Guild({
+          name: guild.name,
+          id: guild.id
+        })
+
+        try {
+          await guildToSave.save()
+        } catch (err) {
+          throw new Error(logger.error(err))
+        }
+      }
     }
   }
 }

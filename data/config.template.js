@@ -12,11 +12,23 @@ module.exports = {
 
   // game the bot is playing
 
-  game: '',
+  presence: {
+    name: (client) => `${client.users.size} over ${client.guilds.size} guilds || ${this.commandPrefix}help`,
+    type: 'WATCHING',
+    status: 'DnD'
+  },
 
   // prefix for all commands
 
   commandPrefix: '',
+
+  // listing site tokens
+
+  listingSites: {
+    dbl: '',
+    discordbots: '',
+    bfd: ''
+  },
 
   // discord api information
   discord: {

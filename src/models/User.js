@@ -1,11 +1,22 @@
-import Schema from 'mongoose'
-import Database from '../Database'
+import mongoose from 'mongoose'
 
-const db = Database.connect()
+const UserSchema = new mongoose.Schema({
+  id: {
+    type: Number,
+    required: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  balance: {
+    type: Number,
+    default: 0
+  },
+  premium: {
+    type: Boolean,
+    default: false
+  }
+})
 
-export default db.model('UserModel', new Schema.Schema({
-  id: Number,
-  name: String,
-  balance: Number,
-  premium: Boolean
-}))
+export default mongoose.model('User', UserSchema)

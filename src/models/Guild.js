@@ -1,11 +1,23 @@
-import Schema from 'mongoose'
-import Database from '../Database'
+import mongoose from 'mongoose'
+import { commandPrefix } from '@data/config'
 
-const db = Database.connect()
+const GuildSchema = new mongoose.Schema({
+  id: {
+    type: Number,
+    required: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  prefix: {
+    type: Array,
+    default: [ commandPrefix ]
+  },
+  disabledCommands: {
+    type: Array,
+    default: [ '' ]
+  }
+})
 
-export default db.model('GuildModel', new Schema.Schema({
-  id: Number,
-  name: String,
-  prefix: Array[String],
-  disabledCommands: Array[String]
-}))
+export default mongoose.model('Guild', GuildSchema, 'guilds')

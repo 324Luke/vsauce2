@@ -1,7 +1,7 @@
 import { Listener } from 'discord-akairo'
 import logger from '@src/Logger'
-import database from '@src/Database'
-import { commandPrefix, presence } from '@data/config'
+import Guild from '../models/Guild'
+import { presence } from '@data/config'
 
 class ReadyListener extends Listener {
   constructor () {
@@ -18,21 +18,23 @@ class ReadyListener extends Listener {
     logger.ready('bot has started')
     logger.info(`vsauce is serving ${this.client.users.size} users over ${this.client.guilds.size} guilds`)
 
-    // TODO: Add stats poster
+    // TODO: ADD stats posting
 
-    // FIXME:
-    this.client.guilds.forEach(guild => {
-      if (guild.available) {
-        if (!database.read('guilds', { id: guild.id })) {
-          database.create('guilds', {
-            name: guild.name,
-            id: guild.id,
-            prefix: commandPrefix
-          })
+    for (const guild of this.client.guilds) {
+      if (!Guild.findOne({ id: guild.id })) {
+        const guildToSave = new Guild({
+          name: guild.name,
+          id: guild.id
+        })
+
+        try {
           logger.info(`inserted guild ${guild.name} with id ${guild.id}`)
+          await guildToSave.save()
+        } catch (err) {
+          throw new Error(logger.error(err))
         }
       }
-    })
+    }
   }
 }
 

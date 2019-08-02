@@ -52,6 +52,7 @@ export default {
    * Inserts many documents to the database
    * @param {String} collection
    * @param {Object} objects
+   * @deprecated
    */
   async createMany (collection, objects) {
     const db = await this.connect(database.url)
@@ -66,6 +67,7 @@ export default {
    * Reads documents from the database
    * @param {String} collection Collection which houses the document we're searching for
    * @param {Object} searchWith The document we're searching for
+   * @deprecated
    */
   async read (collection, searchWith) {
     const db = await this.connect(database.url)
@@ -85,6 +87,7 @@ export default {
    * @param {String} collection Collection which houses the document we're updating
    * @param {Object} searchFor The document to search for
    * @param {Object} toUpdate New data for the document
+   * @deprecated
    */
   async update (collection, searchFor, toUpdate) {
     const db = await this.connect(database.url)
@@ -96,28 +99,12 @@ export default {
   },
 
   /**
-   * Deletes an entire collection in the database
-   * @param {String} collection Collection to wipe
-   */
-  async wipe (collection) {
-    return 'Function not finished.'
-  },
-
-  /**
    *
    * @param {String} collection Collection to delete object from
    * @param {Object} object Object to find and delete
+   * @deprecated
    */
   async delete (collection, object) {
     return 'Function not finished.'
   }
-
-  // async delete (collection) {
-  //   const db = await this.connect(database.url)
-  //   const data = db.collection(collection)
-
-  //   return new Promise(async (resolve, reject) => {
-
-  //   })
-  // }
 }
