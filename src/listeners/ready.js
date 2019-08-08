@@ -22,7 +22,7 @@ class ReadyListener extends Listener {
     postStats(this.client)
 
     for (const guild of this.client.guilds) {
-      Guild.findOne({ id: 528810369607663621 })
+      Guild.findOne({ id: guild.id })
         .then(async (doc) => {
           if (doc === null) {
             const guildToSave = new Guild({
