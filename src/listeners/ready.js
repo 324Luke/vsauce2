@@ -2,6 +2,7 @@ import { Listener } from 'discord-akairo'
 import logger from '@src/Logger'
 import Guild from '../models/Guild'
 import { presence } from '@data/config'
+import { postStats } from '@src/Utils'
 
 class ReadyListener extends Listener {
   constructor () {
@@ -18,7 +19,7 @@ class ReadyListener extends Listener {
     logger.ready('bot has started')
     logger.info(`vsauce is serving ${this.client.users.size} users over ${this.client.guilds.size} guilds`)
 
-    // TODO: ADD stats posting
+    postStats(this.client)
 
     for (const guild of this.client.guilds) {
       Guild.findOne({ id: 528810369607663621 })

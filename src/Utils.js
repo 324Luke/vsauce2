@@ -1,5 +1,7 @@
 import { listingSites } from '@data/config'
 import axios from 'axios'
+// eslint-disable-next-line no-unused-vars
+import { AkairoClient } from 'discord-akairo'
 
 /**
  * Generate's a psuedo-random number between min and max arguments
@@ -22,26 +24,18 @@ export function randomFromArray (array) {
 
 /**
  *
- * @param {Database} db
- */
-export function getDatabasePing (db) {
-  return db.ping()
-}
-
-/**
- *
- * @param {any} [client] Discord Client Istance
+ * @param {AkairoClient} [client] Discord Client Instance
  */
 export function postStats (client) {
   if (process.env.NODE_ENV === 'production') {
     // Discord Bot List
     axios({
       method: 'post',
-      url: `https://discordbotlist.com/api/bots/455099726635728896/stats`,
+      url: 'https://discordbotlist.com/api/bots/455099726635728896/stats',
 
       headers: {
         'Content-Type': 'application/json',
-        'Authentication': `Bot ${listingSites.dbl}`
+        'Authorization': `Bot ${listingSites.dbl}`
       },
 
       data: {
@@ -54,17 +48,19 @@ export function postStats (client) {
     // Bots For Discord
     axios({
       method: 'post',
-      url: `https://botsfordiscord.com/api/bot/455099726635728896/`,
+      url: 'https://botsfordiscord.com/api/bot/455099726635728896/',
 
       headers: {
         'Content-Type': 'application/json',
-        'Authentication': `${listingSites.bfd}`
+        'Authorization': listingSites.bfd
       },
 
       data: {
         'server_count': Number(client.guilds.size)
       }
     })
+  } else {
+    return 'Node Environment is not production. Can\'t post stats.'
   }
 }
 
