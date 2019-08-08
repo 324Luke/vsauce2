@@ -6,7 +6,7 @@ module.exports = {
 
   embedColor: '#36393F',
 
-  // owner of the bot
+  // owner(s) of the bot
 
   botOwner: [ '' ],
 

@@ -21,19 +21,25 @@ class ReadyListener extends Listener {
     // TODO: ADD stats posting
 
     for (const guild of this.client.guilds) {
-      if (!Guild.findOne({ id: guild.id })) {
-        const guildToSave = new Guild({
-          name: guild.name,
-          id: guild.id
-        })
+      Guild.findOne({ id: 528810369607663621 })
+        .then(async (doc) => {
+          if (doc === null) {
+            const guildToSave = new Guild({
+              name: guild[1].name,
+              id: guild[1].id
+            })
 
-        try {
-          logger.info(`inserted guild ${guild.name} with id ${guild.id}`)
-          await guildToSave.save()
-        } catch (err) {
+            try {
+              logger.info(`inserted guild ${guild[1].name} with id ${guild[1].id}`)
+              await guildToSave.save()
+            } catch (err) {
+              throw new Error(logger.error(err))
+            }
+          }
+        })
+        .catch((err) => {
           throw new Error(logger.error(err))
-        }
-      }
+        })
     }
   }
 }
