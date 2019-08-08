@@ -1,5 +1,5 @@
 import { Listener } from 'discord-akairo'
-import logger from '@src/Logger'
+import logger from '@src/logger'
 import Guild from '../models/Guild'
 import { presence } from '@data/config'
 import { postStats } from '@src/Utils'

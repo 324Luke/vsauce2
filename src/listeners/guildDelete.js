@@ -1,5 +1,5 @@
 import { Listener } from 'discord-akairo'
-import logger from '@src/Logger'
+import logger from '@src/logger'
 import { presence } from '@data/config'
 
 class GuildDeleteListener extends Listener {

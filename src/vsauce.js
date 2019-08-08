@@ -2,7 +2,7 @@ import 'module-alias/register'
 
 import { AkairoClient } from 'discord-akairo'
 import { botOwner, commandPrefix, discord, database, listingSites } from '../data/config'
-import logger from './Logger'
+import logger from './logger'
 import mongoose from 'mongoose'
 import DBL from 'dblapi.js'
 
