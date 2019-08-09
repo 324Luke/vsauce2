@@ -24,7 +24,9 @@ class ReadyListener extends Listener {
     for (const guild of this.client.guilds) {
       Guild.findOne({ id: guild.id })
         .then(async (doc) => {
-          if (doc === null) {
+          console.log(doc === null)
+          if (!doc) {
+            console.log(doc)
             const guildToSave = new Guild({
               name: guild[1].name,
               id: guild[1].id
