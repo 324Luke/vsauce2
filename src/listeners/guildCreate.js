@@ -2,7 +2,7 @@ import { Listener } from 'discord-akairo'
 import logger from '@src/logger'
 import { presence } from '@data/config'
 import Guild from '@src/models/Guild'
-import { postStats } from '@src/Utils'
+import { postStats } from '@src/utils'
 
 class GuildCreateListener extends Listener {
   constructor () {

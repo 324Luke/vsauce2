@@ -1,5 +1,5 @@
 import { Command } from 'discord-akairo'
-import { getReddit } from '@src/Utils'
+import { getReddit } from '@src/utils'
 import { embedColor } from '@data/config'
 
 class MarvelMemeCommand extends Command {
