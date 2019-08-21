@@ -2,7 +2,7 @@ import { Listener } from 'discord-akairo'
 import logger from '@src/logger'
 import Guild from '../models/Guild'
 import { presence } from '@data/config'
-import { postStats } from '@src/Utils'
+import { postStats } from '@src/utils'
 
 class ReadyListener extends Listener {
   constructor () {
@@ -14,7 +14,9 @@ class ReadyListener extends Listener {
 
   async exec () {
     this.client.user.setPresence({ game: { name: presence.name(this.client), type: presence.type }, status: presence.status })
-      .catch(console.error)
+      .catch(err => {
+        throw new Error(logger.error(err))
+      })
 
     logger.ready('bot has started')
     logger.info(`vsauce is serving ${this.client.users.size} users over ${this.client.guilds.size} guilds`)
@@ -22,11 +24,9 @@ class ReadyListener extends Listener {
     postStats(this.client)
 
     for (const guild of this.client.guilds) {
-      Guild.findOne({ id: guild.id })
-        .then(async (doc) => {
-          console.log(doc === null)
-          if (!doc) {
-            console.log(doc)
+      Guild.find({ id: guild[1].id }).limit(1)
+        .then(async doc => {
+          if (doc.length === 0) {
             const guildToSave = new Guild({
               name: guild[1].name,
               id: guild[1].id
@@ -40,7 +40,7 @@ class ReadyListener extends Listener {
             }
           }
         })
-        .catch((err) => {
+        .catch(async err => {
           throw new Error(logger.error(err))
         })
     }
