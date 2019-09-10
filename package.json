@@ -21,7 +21,7 @@
   "homepage": "https://github.com/324Luke/vsauce2#readme",
   "devDependencies": {
     "cross-env": "^5.2.0",
-    "eslint": "^6.2.2",
+    "eslint": "^6.3.0",
     "eslint-config-standard": "^14.1.0",
     "nodemon": "^1.19.1",
     "standard": "^14.1.0"
