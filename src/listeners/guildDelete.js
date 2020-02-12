@@ -1,7 +1,7 @@
 import { Listener } from 'discord-akairo'
-import logger from '@src/logger'
-import { presence } from '@data/config'
-import { postStats } from '@src/utils'
+import logger from '../logger'
+import { presence } from '../../data/config'
+import { postStats } from '../Utils'
 
 class GuildDeleteListener extends Listener {
   constructor () {

@@ -1,6 +1,6 @@
 import { Command } from 'discord-akairo'
-import { getReddit } from '@src/utils'
-import { embedColor } from '@data/config'
+import { getReddit } from '../../utils'
+import { embedColor } from '../../../data/config'
 
 class ShowerThoughtsCommand extends Command {
   constructor () {

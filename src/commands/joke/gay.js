@@ -1,6 +1,6 @@
 import { Command } from 'discord-akairo'
-import { embedColor } from '@data/config'
-import { getRandomInt } from '@src/utils.js'
+import { embedColor } from '../../../data/config'
+import { getRandomInt } from '../../utils.js'
 
 class GayCommand extends Command {
   constructor () {

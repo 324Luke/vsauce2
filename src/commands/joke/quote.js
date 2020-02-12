@@ -1,6 +1,6 @@
 import { Command } from 'discord-akairo'
 import quotes from '../../../data/quotes.json'
-import { embedColor } from '@data/config'
+import { embedColor } from '../../../data/config'
 
 class QuoteCommand extends Command {
   constructor () {

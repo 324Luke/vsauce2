@@ -1,6 +1,6 @@
 import { Command } from 'discord-akairo'
-import { getReddit, randomFromArray } from '@src/utils'
-import { embedColor } from '@data/config'
+import { getReddit, randomFromArray } from '../../utils'
+import { embedColor } from '../../../data/config'
 
 class MemeCommand extends Command {
   constructor () {

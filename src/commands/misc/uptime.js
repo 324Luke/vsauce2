@@ -1,5 +1,5 @@
 import { Command } from 'discord-akairo'
-import { embedColor } from '@data/config'
+import { embedColor } from '../../../data/config'
 
 class UptimeCommand extends Command {
   constructor () {

@@ -1,6 +1,6 @@
 import { Command } from 'discord-akairo'
 import axios from 'axios'
-import { embedColor } from '@data/config'
+import { embedColor } from '../../../data/config'
 
 class InsultCommand extends Command {
   constructor () {

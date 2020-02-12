@@ -23,6 +23,10 @@
     "cross-env": "^6.0.3",
     "eslint": "^6.6.0",
     "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "nodemon": "^2.0.1",
     "standard": "^14.3.1"
   },
@@ -33,15 +37,6 @@
     "discord-akairo": "^7.5.6",
     "discord.js": "^11.5.1",
     "esm": "^3.2.25",
-    "module-alias": "^2.2.2",
     "mongoose": "^5.7.12"
-  },
-  "_moduleAliases": {
-    "@": ".",
-    "@commands": "src/commands",
-    "@listeners": "src/listeners",
-    "@data": "data/",
-    "@inhibitors": "src/inhibitors",
-    "@src": "src/"
   }
 }

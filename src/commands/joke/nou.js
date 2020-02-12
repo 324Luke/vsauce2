@@ -1,6 +1,6 @@
 import { Command } from 'discord-akairo'
-import { embedColor } from '@data/config'
-import images from '@data/images/reverse'
+import { embedColor } from '../../../data/config'
+import images from '../../../data/images/reverse'
 
 class NoUCommand extends Command {
   constructor () {

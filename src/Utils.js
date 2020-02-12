@@ -1,4 +1,4 @@
-import { listingSites } from '@data/config'
+import { listingSites } from '../data/config'
 import axios from 'axios'
 // eslint-disable-next-line no-unused-vars
 import { AkairoClient } from 'discord-akairo'

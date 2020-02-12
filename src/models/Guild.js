@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { commandPrefix } from '@data/config'
+import { commandPrefix } from '../data/config'
 
 const GuildSchema = new mongoose.Schema({
   id: {

@@ -1,5 +1,3 @@
-import 'module-alias/register'
-
 import { AkairoClient } from 'discord-akairo'
 import { botOwner, commandPrefix, discord, database, listingSites } from '../data/config'
 import logger from './logger'

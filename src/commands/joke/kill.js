@@ -1,6 +1,6 @@
 import { Command } from 'discord-akairo'
-import deaths from '@data/deaths'
-import { embedColor } from '@data/config'
+import deaths from '../../../data/deaths'
+import { embedColor } from '../../../data/config'
 
 class KillCommand extends Command {
   constructor () {

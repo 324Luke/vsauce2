@@ -1,5 +1,5 @@
 import { Command } from 'discord-akairo'
-import { embedColor } from '@data/config'
+import { embedColor } from '../../../data/config'
 import axios from 'axios'
 
 class BirdCommand extends Command {

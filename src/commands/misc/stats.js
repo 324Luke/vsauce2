@@ -1,5 +1,5 @@
 import { Command } from 'discord-akairo'
-import { embedColor, version } from '@data/config'
+import { embedColor, version } from '../../../data/config'
 
 class StatsCommand extends Command {
   constructor () {

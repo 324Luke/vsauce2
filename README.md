@@ -24,6 +24,8 @@ If you don't understand something or, you are experiencing problems, or you just
 
 ## Running the Bot
 
+These are inaccurate and need to be written to show that this project now uses yarn 2. It'll probably still work though.
+
 1. Install Node.js & NPM [here](https://nodejs.org/en/) if you haven't already.
 2. Install MongoDB [here](https://www.mongodb.com/download-center/community) if you haven't already.
    1. Find your [installation guide](https://docs.mongodb.com/manual/installation/) and follow it.
