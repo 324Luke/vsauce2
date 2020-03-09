@@ -322,9 +322,9 @@ crypto-random-string@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-1.0.0.tgz#a230f64f568310e1498009940790ec99545bca7e"
 
-dblapi.js@^2.3.0:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/dblapi.js/-/dblapi.js-2.3.1.tgz#ce1a3ad84a662ae3c6c8ded561b554a744fd7bf0"
+dblapi.js@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/dblapi.js/-/dblapi.js-2.4.0.tgz#5e209847f2625e380dabaff925baacee33a66791"
 
 debug-log@^1.0.0:
   version "1.0.1"
