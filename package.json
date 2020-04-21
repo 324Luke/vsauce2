@@ -37,6 +37,6 @@
     "discord-akairo": "^7.5.6",
     "discord.js": "^11.5.1",
     "esm": "^3.2.25",
-    "mongoose": "^5.9.9"
+    "mongoose": "^5.9.10"
   }
 }
