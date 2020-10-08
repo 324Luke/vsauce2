@@ -22,7 +22,7 @@ class KillCommand extends Command {
 
     embed.setTitle('🔪 Kill')
 
-    embed.setDescription(deaths[Math.floor(Math.random() * deaths.length)](message.author, victim))
+    embed.setDescription(deaths[Math.floor(Math.random() * deaths.length)](message.author, victim || message.author))
 
     embed.setColor(embedColor)
     embed.setTimestamp(new Date())

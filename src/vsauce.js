@@ -1,26 +1,15 @@
-import { AkairoClient } from 'discord-akairo'
-import { botOwner, commandPrefix, discord, database, listingSites } from '../data/config'
+import VSauceClient from './client'
 import logger from './logger'
 import mongoose from 'mongoose'
 import DBL from 'dblapi.js'
+import * as config from '../data/config'
 
 if (Number(process.version.slice(1).split('.')[0]) < 8) throw new Error('Node 8.0.0 or higher is required. Update Node on your system.')
 
-const client = new AkairoClient({
-  ownerID: botOwner,
-  prefix: commandPrefix,
-  clientUtil: true,
-  handleEdits: true,
-  defaultCooldown: 2000,
-  commandDirectory: './src/commands/',
-  inhibitorDirectory: './src/inhibitors',
-  listenerDirectory: './src/listeners/'
-}, {
-  disableEveryone: true
-})
+const client = new VSauceClient()
 
 if (process.env.NODE_ENV === 'production') {
-  const dbl = new DBL(listingSites.dbl)
+  const dbl = new DBL(config.listingSites.dbl)
 
   dbl.on('posted', () => {
     logger.info(`posted server count with ${this.client.users} users and ${this.client.guilds} guilds`)
@@ -33,11 +22,11 @@ if (process.env.NODE_ENV === 'production') {
 
 logger.wait('logging in ...')
 
-client.login(discord.token)
+client.login(config.discord.token)
   .then(async () => {
     logger.wait('logging in to database ...')
 
-    await mongoose.connect(database.url, {
+    await mongoose.connect(config.database.url, {
       useNewUrlParser: true,
       dbName: 'vsauce',
       useUnifiedTopology: true

@@ -23,15 +23,15 @@ class StatsCommand extends Command {
 
     embed.setTitle('📊 Statistics')
 
-    embed.addField('Author', `${this.client.users.get('189850839660101632')}`, true)
+    embed.addField('Author', `${this.client.users.cache.get('189850839660101632')}`, true)
     embed.addField('Bot Version', `v${version}`, true)
     embed.addField('Node.js Version', `${process.version}`, true)
     embed.addField('Discord.js Version', `v${require('discord.js/package.json').version}`, true)
     embed.addField('Discord Akairo Version', `v${require('discord-akairo/package.json').version}`, true)
     embed.addField('Uptime', `\`${weeks}w:${days}:${hours}h:${minutes}m:${seconds}s\``, true)
-    embed.addField('Servers', `${this.client.guilds.size} servers`, true)
-    embed.addField('Users', `${this.client.users.size} users`, true)
-    embed.addBlankField(true)
+    embed.addField('Servers', `${this.client.guilds.cache.size} servers`, true)
+    embed.addField('Users', `${this.client.users.cache.size} users`, true)
+    embed.addField('\u200B', '\u200B', true)
 
     embed.setColor(embedColor)
     embed.setTimestamp(new Date())

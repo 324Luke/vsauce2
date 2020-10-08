@@ -18,7 +18,7 @@ class GayCommand extends Command {
   }
 
   async exec (message, { member }) {
-    const { user } = member
+    const { user } = member || message.author
     const embed = this.client.util.embed()
 
     embed.setTitle('🌈')

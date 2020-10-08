@@ -21,7 +21,7 @@ class PingCommand extends Command {
     return message.channel.send(embed).then(m => {
       embed.setTitle('**:ping_pong: Pong!**')
       embed.addField('Current Message Latency<:blank:588039534063779841>', `\`${m.createdTimestamp - message.createdTimestamp}ms\``, true)
-      embed.addField('Current API Latency', `\`${Math.round(this.client.ping)}ms\``, true)
+      embed.addField('Current API Latency', `\`${Math.round(this.client.ws.ping)}ms\``, true)
       m.edit(embed)
     })
   }

@@ -15,7 +15,7 @@ class InviteCommand extends Command {
 
     embed.setTitle('➕ Invite')
 
-    embed.setDescription('Click [here](https://discordapp.com/api/oauth2/authorize?client_id=532710471367655425&permissions=104156224&scope=bot) to add the bot to your server!')
+    embed.setDescription('Click [here](https://discord.com/oauth2/authorize?client_id=455099726635728896&permissions=104156224&scope=bot) to add the bot to your server!')
 
     embed.setColor(embedColor)
     embed.setTimestamp(new Date())

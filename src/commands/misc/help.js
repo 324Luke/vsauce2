@@ -30,7 +30,7 @@ class HelpCommand extends Command {
   async exec (message, { command }) {
     if (!command) return this.execCommandList(message)
 
-    const prefix = this.handler.prefix(message)
+    const prefix = this.handler.prefix
     const description = Object.assign({
       content: 'No description available.',
       usage: '',
