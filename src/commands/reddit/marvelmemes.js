@@ -5,7 +5,7 @@ import { embedColor } from '../../../data/config'
 class MarvelMemeCommand extends Command {
   constructor () {
     super('marvel', {
-      aliases: [ 'marvel', 'marvelmeme', 'marvelmemes' ],
+      aliases: ['marvel', 'marvelmeme', 'marvelmemes'],
       category: 'reddit'
     })
   }

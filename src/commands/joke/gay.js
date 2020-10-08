@@ -5,7 +5,7 @@ import { getRandomInt } from '../../utils.js'
 class GayCommand extends Command {
   constructor () {
     super('gay', {
-      aliases: [ 'gay', 'howgay' ],
+      aliases: ['gay', 'howgay'],
       category: 'joke',
       description: '🌈 Returns a ~~100% accurate~~ value of how gay a given person is.',
       args: [

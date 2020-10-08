@@ -4,7 +4,7 @@ import { embedColor } from '../../../data/config'
 class InviteCommand extends Command {
   constructor () {
     super('invite', {
-      aliases: [ 'invite' ],
+      aliases: ['invite'],
       category: 'misc',
       description: '➕ Returns an invite for the bot'
     })

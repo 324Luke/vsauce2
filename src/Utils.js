@@ -35,13 +35,13 @@ export function postStats (client) {
 
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bot ${listingSites.dbl}`
+        Authorization: `Bot ${listingSites.dbl}`
       },
 
       data: {
-        'guilds': Number(client.guilds.size),
-        'users': Number(client.users.size),
-        'voice_connections': 0
+        guilds: Number(client.guilds.size),
+        users: Number(client.users.size),
+        voice_connections: 0
       }
     })
 
@@ -52,11 +52,11 @@ export function postStats (client) {
 
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': listingSites.bfd
+        Authorization: listingSites.bfd
       },
 
       data: {
-        'server_count': Number(client.guilds.size)
+        server_count: Number(client.guilds.size)
       }
     })
   } else {

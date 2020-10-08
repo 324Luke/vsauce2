@@ -5,7 +5,7 @@ import { embedColor } from '../../../data/config'
 class ShowerThoughtsCommand extends Command {
   constructor () {
     super('showerthought', {
-      aliases: [ 'showerthought', 'showerthoughts' ],
+      aliases: ['showerthought', 'showerthoughts'],
       category: 'reddit'
     })
   }

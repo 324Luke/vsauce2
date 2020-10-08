@@ -12,11 +12,11 @@ const GuildSchema = new mongoose.Schema({
   },
   prefix: {
     type: Array,
-    default: [ commandPrefix ]
+    default: [commandPrefix]
   },
   disabledCommands: {
     type: Array,
-    default: [ '' ]
+    default: ['']
   }
 })
 

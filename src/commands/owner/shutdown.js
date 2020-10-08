@@ -4,7 +4,7 @@ import { embedColor } from '../../../data/config'
 class ShutdownCommand extends Command {
   constructor () {
     super('shutdown', {
-      aliases: [ 'shutdown', 'quit', 'restart' ],
+      aliases: ['shutdown', 'quit', 'restart'],
       category: 'owner',
       ownerOnly: true
     })

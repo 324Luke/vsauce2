@@ -33,11 +33,15 @@ if (process.env.NODE_ENV === 'production') {
 
 logger.wait('logging in ...')
 
-client.login(process.env.NODE_ENV === 'production' ? discord.prodToken : discord.devToken)
+client.login(discord.token)
   .then(async () => {
     logger.wait('logging in to database ...')
 
-    await mongoose.connect(database.url, { useNewUrlParser: true, dbName: 'vsauce' })
+    await mongoose.connect(database.url, {
+      useNewUrlParser: true,
+      dbName: 'vsauce',
+      useUnifiedTopology: true
+    })
       .then(() => {
         logger.ready('connected to database ...')
       })

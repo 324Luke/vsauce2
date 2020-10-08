@@ -5,7 +5,7 @@ import axios from 'axios'
 class CatCommand extends Command {
   constructor () {
     super('cat', {
-      aliases: [ 'cat', 'kitty' ],
+      aliases: ['cat', 'kitty'],
       category: 'animal',
       description: '🐱 Returns a random cat image and fact!'
     })
@@ -15,7 +15,7 @@ class CatCommand extends Command {
     axios.get('http://aws.random.cat/meow')
       .then(res => {
         const embed = this.client.util.embed()
-        const cats = [ '🐱', '🐈', '😸' ]
+        const cats = ['🐱', '🐈', '😸']
 
         embed.setTitle(cats[Math.floor(Math.random() * cats.length)])
 

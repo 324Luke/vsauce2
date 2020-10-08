@@ -5,7 +5,7 @@ import axios from 'axios'
 class BunnyCommand extends Command {
   constructor () {
     super('bunny', {
-      aliases: [ 'bunny' ],
+      aliases: ['bunny'],
       category: 'animal',
       description: '🐰 Returns a random bunny image and fact!'
     })
@@ -15,7 +15,7 @@ class BunnyCommand extends Command {
     axios.get('https://api.bunnies.io/v2/loop/random/?media=gif,png')
       .then(res => {
         const embed = this.client.util.embed()
-        const bunnies = [ '🐰', '🐇' ]
+        const bunnies = ['🐰', '🐇']
 
         embed.setTitle(bunnies[Math.floor(Math.random() * bunnies.length)])
 

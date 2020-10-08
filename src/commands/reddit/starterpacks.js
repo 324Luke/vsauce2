@@ -5,7 +5,7 @@ import { embedColor } from '../../../data/config'
 class StarterPackCommand extends Command {
   constructor () {
     super('starterpack', {
-      aliases: [ 'starterpack', 'starterpacks' ],
+      aliases: ['starterpack', 'starterpacks'],
       category: 'reddit'
     })
   }

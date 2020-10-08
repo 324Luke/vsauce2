@@ -4,7 +4,7 @@ import { embedColor } from '../../../data/config'
 class UptimeCommand extends Command {
   constructor () {
     super('uptime', {
-      aliases: [ 'uptime' ],
+      aliases: ['uptime'],
       category: 'misc',
       description: '⌚ Shows how long the bot has been online'
     })
@@ -12,12 +12,12 @@ class UptimeCommand extends Command {
 
   async exec (message) {
     let totalSeconds = (this.client.uptime / 1000)
-    let weeks = Math.floor(totalSeconds / 604800)
-    let days = Math.floor(totalSeconds / 86400)
-    let hours = Math.floor(totalSeconds / 3600)
+    const weeks = Math.floor(totalSeconds / 604800)
+    const days = Math.floor(totalSeconds / 86400)
+    const hours = Math.floor(totalSeconds / 3600)
     totalSeconds %= 3600
-    let minutes = Math.floor(totalSeconds / 60)
-    let seconds = Math.floor(totalSeconds % 60)
+    const minutes = Math.floor(totalSeconds / 60)
+    const seconds = Math.floor(totalSeconds % 60)
 
     const embed = this.client.util.embed()
 

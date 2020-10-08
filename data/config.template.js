@@ -3,15 +3,12 @@ module.exports = {
   version: require('../package').version || '3.0.0',
 
   // default color for embeds
-
   embedColor: '#36393F',
 
   // owner(s) of the bot
-
-  botOwner: [ '' ],
+  botOwner: [''],
 
   // game the bot is playing
-
   presence: {
     name: (client) => `${client.users.size} over ${client.guilds.size} guilds || ${this.commandPrefix}help`,
     type: 'WATCHING',
@@ -19,11 +16,9 @@ module.exports = {
   },
 
   // prefix for all commands
-
   commandPrefix: '',
 
   // listing site tokens
-
   listingSites: {
     dbl: '',
     discordbots: '',

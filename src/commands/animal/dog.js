@@ -5,7 +5,7 @@ import axios from 'axios'
 class DogCommand extends Command {
   constructor () {
     super('dog', {
-      aliases: [ 'dog', 'doggo' ],
+      aliases: ['dog', 'doggo'],
       category: 'animal',
       description: '🐶 Returns a random dog image and fact!'
     })
@@ -15,7 +15,7 @@ class DogCommand extends Command {
     axios.get('https://random.dog/woof.json')
       .then(res => {
         const embed = this.client.util.embed()
-        const dogs = [ '🐶', '🐕', '🐩', '🐕‍🦺' ]
+        const dogs = ['🐶', '🐕', '🐩', '🐕‍🦺']
 
         embed.setTitle(dogs[Math.floor(Math.random() * dogs.length)])
 

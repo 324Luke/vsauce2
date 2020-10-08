@@ -5,7 +5,7 @@ import { embedColor } from '../../../data/config'
 class QuoteCommand extends Command {
   constructor () {
     super('quote', {
-      aliases: [ 'quote' ],
+      aliases: ['quote'],
       category: 'joke',
       description: '💬 Returns a random VSauce quote!'
     })

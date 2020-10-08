@@ -5,7 +5,7 @@ import { embedColor } from '../../../data/config'
 class JokeCommand extends Command {
   constructor () {
     super('joke', {
-      aliases: [ 'joke', 'jokes' ],
+      aliases: ['joke', 'jokes'],
       category: 'reddit'
     })
   }

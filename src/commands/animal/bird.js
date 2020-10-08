@@ -5,7 +5,7 @@ import axios from 'axios'
 class BirdCommand extends Command {
   constructor () {
     super('bird', {
-      aliases: [ 'bird', 'birb' ],
+      aliases: ['bird', 'birb'],
       category: 'animal',
       description: '🕊 Returns a random bird image and fact!'
     })
@@ -15,7 +15,7 @@ class BirdCommand extends Command {
     axios.get('https://some-random-api.ml/img/birb')
       .then(res => {
         const embed = this.client.util.embed()
-        const birds = [ '🕊', '🐦', '🐓', '🐤', '🐣', '🐥', '🐔', '🦃', '🦅', '🦉', '🦜', '🦚' ]
+        const birds = ['🕊', '🐦', '🐓', '🐤', '🐣', '🐥', '🐔', '🦃', '🦅', '🦉', '🦜', '🦚']
 
         embed.setTitle(birds[Math.floor(Math.random() * birds.length)])
 

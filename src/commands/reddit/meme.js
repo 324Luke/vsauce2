@@ -5,13 +5,13 @@ import { embedColor } from '../../../data/config'
 class MemeCommand extends Command {
   constructor () {
     super('meme', {
-      aliases: [ 'meme', 'memes', 'dank', 'dankmemes' ],
+      aliases: ['meme', 'memes', 'dank', 'dankmemes'],
       category: 'reddit'
     })
   }
 
   async exec (message) {
-    const post = await getReddit(randomFromArray([ 'memes', 'dankmemes' ]))
+    const post = await getReddit(randomFromArray(['memes', 'dankmemes']))
     const embed = this.client.util.embed()
 
     if (!post.is_video && !post.over_18 && post.post_hint === 'image' && !post.stickied) {

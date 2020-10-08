@@ -5,7 +5,7 @@ import { embedColor } from '../../../data/config'
 class InsultCommand extends Command {
   constructor () {
     super('insult', {
-      aliases: [ 'insult' ],
+      aliases: ['insult'],
       category: 'joke',
       description: '😡 Insults anyone of your choosing!',
       args: [

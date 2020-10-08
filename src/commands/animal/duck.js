@@ -5,7 +5,7 @@ import axios from 'axios'
 class DuckCommand extends Command {
   constructor () {
     super('duck', {
-      aliases: [ 'duck' ],
+      aliases: ['duck'],
       category: 'animal',
       description: '🦆 Returns a random duck image and fact!'
     })

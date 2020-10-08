@@ -5,7 +5,7 @@ import axios from 'axios'
 class HugCommand extends Command {
   constructor () {
     super('hug', {
-      aliases: [ 'hug' ],
+      aliases: ['hug'],
       category: 'joke',
       args: [
         {

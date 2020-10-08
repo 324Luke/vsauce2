@@ -4,7 +4,7 @@ import uselessSites from '../../../data/useless.json'
 class UselessCommand extends Command {
   constructor () {
     super('useless', {
-      aliases: [ 'useless', 'uselessweb' ],
+      aliases: ['useless', 'uselessweb'],
       category: 'joke',
       description: '😀 Returns a random useless website!'
     })

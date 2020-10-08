@@ -5,7 +5,7 @@ import { embedColor } from '../../../data/config'
 class KillCommand extends Command {
   constructor () {
     super('kill', {
-      aliases: [ 'kill', 'murder' ],
+      aliases: ['kill', 'murder'],
       category: 'joke',
       description: '🔪 Kills anyone of your choosing',
       args: [

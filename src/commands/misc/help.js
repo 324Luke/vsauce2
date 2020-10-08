@@ -4,9 +4,9 @@ import { embedColor, commandPrefix } from '../../../data/config'
 class HelpCommand extends Command {
   constructor () {
     super('help', {
-      aliases: [ 'help', 'commands', 'cmds' ],
+      aliases: ['help', 'commands', 'cmds'],
       category: 'misc',
-      clientPermissions: [ 'EMBED_LINKS' ],
+      clientPermissions: ['EMBED_LINKS'],
       quoted: false,
       args: [
         {
@@ -22,7 +22,7 @@ class HelpCommand extends Command {
       description: {
         content: 'Displays a list of commands or information about a command.',
         usage: '[command]',
-        examples: [ '', 'stats' ]
+        examples: ['', 'stats']
       }
     })
   }
