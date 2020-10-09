@@ -1,31 +1,26 @@
 import chalk from 'chalk'
 
+function log (color, level, message) {
+  switch (color) {
+    case 'orange':
+      console.log(`${chalk.keyword('orange')(`${level} →`)} ${message}`)
+    default:
+      console.log(`${chalk[color](`${level} →`)} ${message}`)
+  }
+}
+
 export default {
-  async info (message) {
-    console.log(`${chalk.blue('info →')} ${message}`)
-  },
+  info: message => log('blue', 'info', message),
+  event: message => log('magenta', 'event', message),
+  warn: message => log('orange', 'warn', message),
+  error: message => log('red', 'error', message),
+  debug: message => log('green', 'debug', message),
 
-  async event (message) {
-    console.log(`${chalk.magenta('event →')} ${message}`)
-  },
-
-  async warn (message) {
-    console.log(`${chalk.keyword('orange')('warn →')} ${message}`)
-  },
-
-  async error (message) {
-    console.log(`${chalk.red('error →')} ${message}`)
-  },
-
-  async debug (message) {
-    console.log(`${chalk.green('debug →')} ${message}`)
-  },
-
-  async ready (message) {
+  ready: message => {
     console.log(`${chalk.hex('#f368e0')('ready →')} ${message}`)
   },
 
-  async wait (message) {
+  wait: message => {
     console.log(`${chalk.hex('#1dd1a1')('waiting →')} ${message}`)
   }
 }
