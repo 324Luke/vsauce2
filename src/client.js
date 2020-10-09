@@ -6,9 +6,7 @@ class VSauceClient extends AkairoClient {
     super({
       ownerID: config.botOwner
     }, {
-      disableMentions: 'everyone',
-      presence: config.presence
-      // ws: { intents: Intents.ALL }
+      disableMentions: 'everyone'
     })
 
     this.commandHandler = new CommandHandler(this, {
@@ -27,9 +25,12 @@ class VSauceClient extends AkairoClient {
       directory: './src/listeners/'
     })
 
-    this.commandHandler.loadAll()
     this.commandHandler.useInhibitorHandler(this.inhibitorHandler)
+    this.commandHandler.useListenerHandler(this.listenerHandler)
+
+    this.commandHandler.loadAll()
     this.inhibitorHandler.loadAll()
+    this.listenerHandler.loadAll()
   }
 }
 

@@ -33,7 +33,6 @@
     "axios": "^0.20.0",
     "bufferutil": "^4.0.1",
     "chalk": "^4.1.0",
-    "dblapi.js": "^2.4.1",
     "discord-akairo": "^8.1.0",
     "discord.js": "^12.3.1",
     "esm": "^3.2.25",
@@ -46,5 +45,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "engines": {
+    "node": ">= 8.0.0"
   }
 }

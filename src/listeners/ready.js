@@ -1,29 +1,34 @@
 import { Listener } from 'discord-akairo'
 import logger from '../logger'
 import Guild from '../models/Guild'
-import { presence } from '../../data/config'
 import { postStats } from '../utils'
 
 class ReadyListener extends Listener {
   constructor () {
     super('ready', {
       emitter: 'client',
-      eventName: 'ready'
+      event: 'ready'
     })
   }
 
   async exec () {
-    this.client.user.setPresence({ game: { name: presence.name(this.client), type: presence.type }, status: presence.status })
+    this.client.user.setPresence({
+      activity: {
+        name: `over ${this.client.users.cache.size} in ${this.client.guilds.cache.size} | ;help`,
+        type: 'WATCHING'
+      },
+      status: 'idle'
+    })
       .catch(err => {
         throw new Error(logger.error(err))
       })
 
     logger.ready('bot has started')
-    logger.info(`vsauce is serving ${this.client.users.size} users over ${this.client.guilds.size} guilds`)
+    logger.info(`vsauce is serving ${this.client.users.cache.size} users over ${this.client.guilds.cache.size} guilds`)
 
     postStats(this.client)
 
-    for (const guild of this.client.guilds) {
+    for (const guild of this.client.guilds.cache) {
       Guild.find({ id: guild[1].id }).limit(1)
         .then(async doc => {
           if (doc.length === 0) {

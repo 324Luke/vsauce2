@@ -2,13 +2,13 @@ import { Listener } from 'discord-akairo'
 import logger from '../logger'
 import { presence } from '../../data/config'
 import Guild from '../models/Guild'
-import { postStats } from '../Utils'
+import { postStats } from '../utils'
 
 class GuildCreateListener extends Listener {
   constructor () {
     super('guildCreate', {
       emitter: 'client',
-      eventName: 'guildCreate'
+      event: 'guildCreate'
     })
   }
 
@@ -18,7 +18,7 @@ class GuildCreateListener extends Listener {
         .catch(console.error)
 
       logger.info(`VSauce has joined ${guild.name} with ${guild.memberCount} members owned by ${guild.owner}`)
-      logger.info(`vsauce is now serving ${this.client.users.size} users over ${this.client.guilds.size} guilds`)
+      logger.info(`VSauce is now serving ${this.client.users.size} users over ${this.client.guilds.size} guilds`)
 
       postStats(this.client)
 
